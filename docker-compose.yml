@@ -34,3 +34,15 @@ services:
     depends_on:
       - service-registry
     restart: always
+  
+  logging-service:
+    build: LoggingService/
+    ports:
+      - "7999:7999"
+    volumes:
+      - logs:/app
+    restart: always
+   
+volumes:
+  logs:
+    driver: local
