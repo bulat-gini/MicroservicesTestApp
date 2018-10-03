@@ -1,0 +1,36 @@
+version: '3.1'
+
+services:
+  service-registry:
+    build: ServiceRegistry/
+    ports:
+      - "9000:9000"
+    restart: always
+
+  cat-service:
+    build: CatService/
+    depends_on:
+      - service-registry
+    restart: always
+
+  country-service:
+    build: CountriesService/
+    depends_on:
+      - service-registry
+    restart: always
+  
+  userinfo-service:
+    build: UsersInfoService/
+    depends_on:
+     - service-registry
+    restart: always
+    deploy:
+      replicas: 2
+
+  gateway-service:
+    build: GatewayService/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - service-registry
+    restart: always

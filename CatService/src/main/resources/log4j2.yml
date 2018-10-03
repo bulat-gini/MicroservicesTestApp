@@ -1,0 +1,41 @@
+Configuration:
+  name: default
+  monitorInterval: 30
+
+  Properties:
+    Property:
+      name: log-path
+      value: "logs"
+
+  Appenders:
+    Console:
+      name: ConsoleAppender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%highlight{%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m}%n"
+
+#    File:
+#      name: FileAppender
+#      fileName: ${log-path}/spring-logging.log
+#      PatternLayout:
+#        pattern: "%highlight{%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m}%n"
+
+    Kafka:
+      name: KafkaAppender
+      topic: logs
+      Property:
+        name: bootstrap.servers
+        value: "localhost:9092"
+      PatternLayout:
+        pattern: "[CATS-SERVICE] %highlight{%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m}%n"
+#      JSONLayout:
+#              compact: false
+
+  Loggers:
+    Root:
+      level: all
+      AppenderRef:
+        - ref: ConsoleAppender
+          level: trace
+        - ref: KafkaAppender
+          level: warn
