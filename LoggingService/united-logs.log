@@ -1,0 +1,3 @@
+[CATS-SERVICE] [33m13:39:44.600 WARN  [main   ] URLConfigurationSource.java:121 - No URLs will be polled as dynamic configuration sources.[m
+[CATS-SERVICE] [33m13:39:47.559 WARN  [main   ] URLConfigurationSource.java:121 - No URLs will be polled as dynamic configuration sources.[m
+[CATS-SERVICE] [33m13:47:27.408 WARN  [Thread-5] DiscoveryClient.java:1294 - Saw local status change event StatusChangeEvent [timestamp=1538563647408, current=DOWN, previous=UP][m

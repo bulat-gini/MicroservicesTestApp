@@ -8,8 +8,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      # defaultZone: http://service-registry:9000/eureka
-      defaultZone: http://localhost:9000/eureka
+      defaultZone: http://service-registry:9000/eureka
+      # defaultZone: http://localhost:9000/eureka
 
 zuul:
   host:

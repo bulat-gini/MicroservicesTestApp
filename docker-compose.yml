@@ -6,18 +6,24 @@ services:
     ports:
       - "9000:9000"
     restart: always
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
 
   cat-service:
     build: CatService/
     depends_on:
       - service-registry
     restart: always
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
 
   country-service:
     build: CountriesService/
     depends_on:
       - service-registry
     restart: always
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
   
   userinfo-service:
     build: UsersInfoService/
@@ -26,6 +32,8 @@ services:
     restart: always
     deploy:
       replicas: 2
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
 
   gateway-service:
     build: GatewayService/
@@ -34,6 +42,8 @@ services:
     depends_on:
       - service-registry
     restart: always
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
   
   logging-service:
     build: LoggingService/
@@ -42,6 +52,8 @@ services:
     volumes:
       - logs:/app
     restart: always
+    extra_hosts:
+      - "bulatgini-laptop:172.19.0.1"
    
 volumes:
   logs:

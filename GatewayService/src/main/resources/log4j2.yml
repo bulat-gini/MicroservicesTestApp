@@ -19,7 +19,7 @@ Configuration:
       topic: logs
       Property:
         name: bootstrap.servers
-        value: "localhost:9092"
+        value: "172.19.0.1:9092"
       PatternLayout:
         pattern: "[GATEWAY-SERVICE] %highlight{%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m}%n"
 
